@@ -1,6 +1,6 @@
 cask "meeting-companion" do
-  version "1.4.1"
-  sha256 "498b481fceaa540389d5d189407f818e2ca98b0e7f9917b5c3ce84a73218a027"
+  version "1.5.0"
+  sha256 "560b10682f6acf1aea91f0b7ebd350a1f7217e94db4336148796a1ca4fb02306"
 
   url "https://gitlab.lamoda.tech/api/v4/projects/3810/packages/generic/meeting-companion/#{version}/Meeting-Companion-#{version}-arm64.zip"
   name "Meeting Companion"
