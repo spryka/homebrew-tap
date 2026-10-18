@@ -7,9 +7,10 @@
 ## Подключение и установка
 
 Нужен установленный [Homebrew](https://brew.sh).
-Один раз подключи репозиторий:
+Сначала обнови Homebrew, затем один раз подключи репозиторий:
 
 ```sh
+brew update
 brew tap bulat/apps https://gitlab.lamoda.tech/bulat.fayzulin/homebrew-tap.git
 ```
 
