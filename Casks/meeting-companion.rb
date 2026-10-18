@@ -8,14 +8,20 @@ cask "meeting-companion" do
   homepage "https://gitlab.lamoda.tech/bulat.fayzulin/meeting-companion"
 
   depends_on arch: :arm64
-  depends_on macos: ">= :sequoia"
+  depends_on macos: :sequoia
 
   app "Meeting Companion.app"
 
-  preflight do
-    if system_command("/usr/bin/pgrep", args: ["-x", "MeetingCompanion"]).exit_status.zero?
-      raise "Quit Meeting Companion from its menu bar menu before installing or updating."
-    end
+  preflight_steps do
+    run "/bin/sh", args: ["-c", <<~SH]
+      /usr/bin/pgrep -x MeetingCompanion >/dev/null
+      status=$?
+      if [ "$status" -eq 0 ]; then
+        echo "Quit Meeting Companion from its menu bar menu before installing or updating." >&2
+        exit 1
+      fi
+      [ "$status" -eq 1 ]
+    SH
   end
 
   caveats <<~EOS
