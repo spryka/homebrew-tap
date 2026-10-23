@@ -1,6 +1,6 @@
 cask "meeting-companion" do
-  version "1.6.0"
-  sha256 "6eb08d16063301e2d6ba0ae5bc387301d8e44e12ef2b6862d1abf55f5c93c8b7"
+  version "1.7.0"
+  sha256 "1b2596e6c244a8d6749fcc61d3c9cd03880cac06612ae699699ca86f0888f1a8"
 
   url "https://gitlab.lamoda.tech/api/v4/projects/3810/packages/generic/meeting-companion/#{version}/Meeting-Companion-#{version}-arm64.zip"
   name "Meeting Companion"
@@ -28,7 +28,7 @@ cask "meeting-companion" do
     This app requires Apple Silicon and macOS 15 or later.
     The app is not notarized by Apple. macOS may require approving its first
     launch in System Settings > Privacy & Security > Open Anyway.
-    First launch downloads local speech models. Recordings and model caches
-    are kept when the cask is uninstalled.
+    Download local speech models from the app before the first transcription.
+    Recordings and model caches are kept when the cask is uninstalled.
   EOS
 end
