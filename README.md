@@ -19,6 +19,14 @@ brew tap spryka/tap
 brew install --cask spryka/tap/meeting-companion
 ```
 
+Если Homebrew сообщает `Refusing to load cask ... from untrusted tap`,
+разреши загрузку этого рецепта и повтори установку:
+
+```sh
+brew trust --cask spryka/tap/meeting-companion
+brew install --cask spryka/tap/meeting-companion
+```
+
 Meeting Companion требует Mac с процессором M-серии и macOS 15+.
 Перед установкой и обновлением заверши приложение через меню в строке меню.
 При первом запуске разреши микрофон и системный звук; календарь необязателен.
