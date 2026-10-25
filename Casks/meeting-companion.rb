@@ -1,11 +1,11 @@
 cask "meeting-companion" do
-  version "1.7.0"
-  sha256 "1b2596e6c244a8d6749fcc61d3c9cd03880cac06612ae699699ca86f0888f1a8"
+  version "1.7.1"
+  sha256 "45e56a54475b3ad51248f1a4e574989fc65fdb24ada10f8c1ac6d8b4d3fe6e62"
 
-  url "https://gitlab.lamoda.tech/api/v4/projects/3810/packages/generic/meeting-companion/#{version}/Meeting-Companion-#{version}-arm64.zip"
+  url "https://github.com/spryka/meeting-companion/releases/download/v#{version}/Meeting-Companion-#{version}-arm64.zip"
   name "Meeting Companion"
   desc "Local meeting audio recorder and transcriber"
-  homepage "https://gitlab.lamoda.tech/bulat.fayzulin/meeting-companion"
+  homepage "https://github.com/spryka/meeting-companion"
 
   depends_on arch: :arm64
   depends_on macos: :sequoia

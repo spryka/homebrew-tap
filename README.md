@@ -1,8 +1,7 @@
 # Homebrew tap
 
 Готовые приложения для macOS. Сборка исходников и Xcode не нужны.
-Для доступа к gitlab.lamoda.tech может понадобиться корпоративная сеть или VPN.
-Проекты публичные: токен GitLab для скачивания не требуется.
+Публичные релизы доступны на GitHub без корпоративной сети и токенов.
 
 ## Подключение и установка
 
@@ -11,13 +10,13 @@
 
 ```sh
 brew update
-brew tap bulat/apps https://gitlab.lamoda.tech/bulat.fayzulin/homebrew-tap.git
+brew tap spryka/tap
 ```
 
 Установи приложение:
 
 ```sh
-brew install --cask bulat/apps/meeting-companion
+brew install --cask spryka/tap/meeting-companion
 ```
 
 Meeting Companion требует Mac с процессором M-серии и macOS 15+.
@@ -35,7 +34,7 @@ Meeting Companion требует Mac с процессором M-серии и m
 Для той же версии и идентичного содержимого можно передать установку Homebrew:
 
 ```sh
-brew install --cask --adopt bulat/apps/meeting-companion
+brew install --cask --adopt spryka/tap/meeting-companion
 ```
 
 Если Homebrew сообщает, что файлы отличаются, не используй `--force` вслепую.
@@ -47,7 +46,7 @@ brew install --cask --adopt bulat/apps/meeting-companion
 
 ```sh
 brew update
-brew upgrade --cask bulat/apps/meeting-companion
+brew upgrade --cask spryka/tap/meeting-companion
 ```
 
 Обновления устанавливаются по команде, приложение само их не скачивает.
@@ -55,7 +54,7 @@ brew upgrade --cask bulat/apps/meeting-companion
 ## Удаление
 
 ```sh
-brew uninstall --cask bulat/apps/meeting-companion
+brew uninstall --cask spryka/tap/meeting-companion
 ```
 
 Записи, настройки и скачанные модели сохраняются.
@@ -76,17 +75,30 @@ brew uninstall --cask bulat/apps/meeting-companion
    shasum -a 256 "dist/Meeting-Companion-VERSION-arm64.zip"
    ```
 
-3. Загрузи архив в Generic Package Registry проекта Meeting Companion (ID 3810):
-   пакет `meeting-companion`, версия `VERSION`, файл `Meeting-Companion-VERSION-arm64.zip`.
+3. Загрузи архив в [GitHub Releases](https://github.com/spryka/meeting-companion/releases)
+   с тегом `vVERSION`, файл `Meeting-Companion-VERSION-arm64.zip`.
    Опубликованные архивы не перезаписывай; для другой сборки выпускай новую версию.
 4. Обнови `version` и `sha256` в `Casks/meeting-companion.rb` и проверь:
 
    ```sh
    brew style Casks/meeting-companion.rb
-   brew fetch --cask bulat/apps/meeting-companion
+   brew fetch --cask spryka/tap/meeting-companion
    ```
 
 5. Закоммить и отправь изменение в этот репозиторий. После `brew update`
    пользователи увидят новую версию. Один тег приложения сам по себе cask не обновляет.
 
 Не добавляй в рецепты токены, сертификаты, ключи или удаление пользовательских данных.
+
+## Переход с GitLab
+
+Если tap уже подключён как `bulat/apps`, поменяй адрес и обнови его:
+
+```sh
+brew tap --custom-remote bulat/apps https://github.com/spryka/homebrew-tap.git
+brew update
+brew upgrade --cask bulat/apps/meeting-companion
+```
+
+Это сохраняет имя tap для уже установленных приложений. Новые установки
+используют `spryka/tap`.
