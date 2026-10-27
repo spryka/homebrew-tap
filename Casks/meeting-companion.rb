@@ -1,6 +1,6 @@
 cask "meeting-companion" do
-  version "1.7.1"
-  sha256 "45e56a54475b3ad51248f1a4e574989fc65fdb24ada10f8c1ac6d8b4d3fe6e62"
+  version "1.7.2"
+  sha256 "d63ee02bdb38b3637e09445dc470dceb2e60ac4a9b18d3a992e1578b00dbe972"
 
   url "https://github.com/spryka/meeting-companion/releases/download/v#{version}/Meeting-Companion-#{version}-arm64.zip"
   name "Meeting Companion"
